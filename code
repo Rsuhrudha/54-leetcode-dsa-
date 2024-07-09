@@ -1,0 +1,35 @@
+54 Sprial matrix
+Statement:-Given an m x n matrix, return all elements of the matrix in spiral order.
+
+Example 1:
+1-> 2 ->3
+        |
+4-> 5   6
+^       |
+|       |
+7 <-8 <-9
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+code:-
+n=int(input())#col
+m=int(input())#rows
+l=[[0]*n for i in range(m)]
+for i in range(m):
+   l[i]=list(map(int,input().split(' '))))[:n]
+colbegin=0
+colend=len(l[0])
+rowbegin=0
+rowend=len(l)
+while(rowbegin<=rowend and colbegin<=colend):
+    for j in range(colbegin,colend):
+        print(l[rowbegin][j],end=" ")
+    rowbegin=rowbegin+1
+    for i in range(rowbegin,rowend):
+        print(l[i][colend-1],end=" ")
+    colend=colend-1
+    for j in range(colend-1,colbegin-1,-1):
+        print(l[rowend-1][j],end=" ")
+    rowend=rowend-1
+    for i in range(rowend-1,rowbegin-1,-1):
+        print(l[i][colbegin],end=" ")
+    colbegin=colbegin+1
